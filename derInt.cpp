@@ -16,6 +16,16 @@ void polynomial::setConstant(double constant)
     constantTerm=constant; 
 }
 
+void polynomial::clearPolynomial()
+{
+    for(int i=0;i<terms;i++)
+    {
+        exponents.pop_back();
+        coefficients.pop_back();
+    }
+    constantTerm=0;
+}
+
 void polynomial::showPolynomial()
 {
     for(int i=0;i<terms;i++)
