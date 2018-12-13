@@ -14,6 +14,7 @@ class polynomial
     public:
     void setPolynomial(int, std::vector <double>, std::vector <double>);
     void setConstant(double);
+    void clearPolynomial();
     void showPolynomial();
     void findDerivative();
 };
