@@ -10,10 +10,20 @@ int main()
     vector <double> termExponents;
     vector <double> termCoefficients;
     polynomial function;
-        
+    char response;
+
     cout<<"How many terms does the polynomial have?"<<endl;
-    cout<<"WARNING: Do not include constants."<<endl;
     cin>>polynomialSize;
+    cout<<"Is there a constant term? (Y)es/(N)o"<<endl;
+    cin>>response;
+    if(response=='Y'||response=='y')
+    {
+        double constant;
+        cout<<"What is the constant?"<<endl;
+        cin>>constant;
+        function.setConstant(constant);
+        polynomialSize--;
+    }
     for(int i=0;i<polynomialSize;i++)
     {
         double exponent;
@@ -25,11 +35,13 @@ int main()
         termExponents.push_back(exponent);
         termCoefficients.push_back(coefficient);
     }
-
+    
     function.setPolynomial(polynomialSize, termExponents, termCoefficients);
     cout<<"Here is the polynomial you entered:"<<endl;
     function.showPolynomial();
     cout<<endl;
+    cout<<"Here is it's derivative:"<<endl;
+    function.findDerivative();
 
     return 0;
 }
