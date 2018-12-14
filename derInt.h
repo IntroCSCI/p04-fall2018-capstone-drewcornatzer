@@ -2,6 +2,7 @@
 #define _DERINT_H_
 #include <vector>
 #include <iostream>
+#include <cmath>
 
 class polynomial
 {
@@ -17,6 +18,7 @@ class polynomial
     void clearPolynomial();
     void showPolynomial();
     void findDerivative();
+    double evaluateDerivative(double);
 };
 
 
