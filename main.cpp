@@ -1,6 +1,7 @@
 #include "derInt.h"
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -60,6 +61,25 @@ int main()
     }while(response2!='y'&&response2!='Y');
     cout<<"Here is it's derivative:"<<endl;
     function.findDerivative();
+
+    char evaluate;
+    cout<<"Would you like to evaluate the derivative? (Y)es/(N)o"<<endl;
+    cin>>evaluate;
+    while(evaluate!='y'&&evaluate!='Y'&&evaluate!='n'&&evaluate!='N')
+    {
+        cout<<"Error! Type 'y' for yes or 'n' for no."<<endl;
+        cin>>evaluate;
+    }
+    if(evaluate=='y'||evaluate=='Y')
+    {
+        int x;
+        int derValue;
+        cout<<"What is the x-value?"<<endl;
+        cin>>x;
+        derValue=function.evaluateDerivative(x);
+        cout<<"The value of the derivative when x="<<x<<" is:"<<endl;
+        cout<<derValue<<endl;
+    }
 
     return 0;
 }
