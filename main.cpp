@@ -77,7 +77,7 @@ int main()
         cout<<"What is the x-value?"<<endl;
         cin>>x;
         derValue=function.evaluateDerivative(x);
-        cout<<"The value of the derivative when x="<<x<<" is:"<<endl;
+        cout<<"The value of the derivative when x = "<<x<<" is:"<<endl;
         cout<<derValue<<endl;
     }
 
