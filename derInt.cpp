@@ -1,6 +1,7 @@
 #include "derInt.h"
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 void polynomial::setPolynomial(int numberOfTerms, std::vector <double> powers, std::vector <double> numbers)
 {
@@ -101,4 +102,35 @@ void polynomial::findDerivative()
                 }
             }
         }
+}
+
+double polynomial::evaluateDerivative(double xValue)
+{
+        std::vector <double> derivativeExponents;
+        std::vector <double> derivativeCoefficients;
+        double derExp;
+        double derCo;
+        double derivativeValue=0;
+
+        for(int i=0;i<terms;i++)
+        {
+            derExp=exponents[i]-1;
+            derCo=exponents[i]*coefficients[i];
+            derivativeCoefficients.push_back(derCo);
+            derivativeExponents.push_back(derExp);
+        }
+
+        for(int i=0;i<terms;i++)
+        {
+            if(derivativeExponents[i]==0)
+            {
+                derivativeValue+=derivativeCoefficients[i];
+            }
+            else
+            {
+                derivativeValue+=derivativeCoefficients[i]*pow(xValue,derivativeExponents[i]);
+            }
+        }
+
+        return derivativeValue;
 }
